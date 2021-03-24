@@ -9,12 +9,19 @@
 <body>
 
     <div id="app">
-        <h1>String: {{ name }}</h1>
-        <h1>Sum (10 + 60): {{ 10+60 }}</h1>
-        <h1>Number: {{ number }}</h1>
-        <h1>Method: {{ sayHello() }}</h1>
-        <h1>If statment: {{ isOk ? 'I am OK' : 'I am not Ok!' }}</h1>
-        <h1>Function: {{ string.split('').reverse().join('') }}</h1>
+
+        <h2>Счетчик = {{ counter }} </h2>
+        <button v-on:click="riceCounter">Увеличить</button>
+
+        <hr>
+
+        <h2>Счетчик 2 = {{ counter2 }} </h2>
+        <button v-on:click="counter2++">Увеличить</button>
+        
+        <hr>
+
+        <h2 v-on:mouseover="onHover">Счетчик 3 = {{ counter3 }} </h2>
+        <button v-on:click="counter3++">Увеличить</button>
 
     </div>
     
@@ -25,15 +32,18 @@
     new Vue({
         el: '#app',
         data: {
-            name: 'Vue!',
-            number: 100,
-            isOk: true,
-            string: 'My name is Dima'
+            counter: 0,
+            counter2: 0,   
+            counter3: 0  
         },
         methods: {
-           sayHello: function(){
-               return 'I am function'
-           } 
+            riceCounter: function (){
+                this.counter++
+            },
+            onHover: function (event) {
+                event.target.style.color = 'red'
+
+            }
         }
     })
 
