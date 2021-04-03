@@ -12,17 +12,14 @@
 
     <div id="app">
 
-    <template v-if="isVisible">    
-        <h2>I am title</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
-    </template>
+    
+        <h2 v-show="isVisible"> I am visible!</h2>
+        <h2 v-show="!isVisible"> You can't see me!</h2>
+        
+        <hr>
 
-    <template v-else> 
-        <h2 style = "color:red">I am title</h2>
-        <p style = "color:blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quod.</p>
-    </template>   
-
-       
+        <button @click="isVisible = !isVisible">Toggle</button>
+        
 
     </div>
     
@@ -33,7 +30,7 @@
     new Vue({
         el: '#app',
         data: {
-            isVisible: false
+            isVisible: true
         }
       })
 </script>  
